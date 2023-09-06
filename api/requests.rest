@@ -1,0 +1,27 @@
+GET http://localhost:5000/todos
+
+###
+
+POST  http://localhost:5000/todo/new
+Content-Type: application/json
+
+{
+    "title": "Order pizza",
+    "description":"Ordering pizza from MCDonalds"
+}
+
+###
+
+DELETE  http://localhost:5000/todo/delete/64bc16b69e419a53deeb3752
+
+###
+GET http://localhost:5000/todo/complete/64bc15eb9e419a53deeb374c
+
+###
+PUT http://localhost:5000/todo/update/64f73a59828f875ebb81ed41
+Content-Type: application/json
+
+{
+    "title": "Order burger",
+    "description":"Ordering burger from burger king"
+}
