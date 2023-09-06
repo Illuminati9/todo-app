@@ -8,8 +8,6 @@ This ToDo app allows users to manage their tasks effectively. Users can create, 
 
 ## Features
 
-- User Registration and Authentication: Users can register and log in to their accounts to manage tasks securely.
-
 - Create Tasks: Users can easily create new tasks with titles and descriptions.
 
 - Update Tasks: Users can edit task details, including titles, descriptions, and due dates.
