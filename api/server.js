@@ -19,6 +19,10 @@ mongoose.connect(process.env.MONGO_URL, {
 
 const Todo = require('./models/Todo')
 
+app.get('/',(req,res)=>{
+    res.send("hello world");
+})
+
 app.get('/todos', async (req, res) => {
     const todos = await Todo.find();
 
