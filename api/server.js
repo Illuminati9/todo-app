@@ -39,6 +39,7 @@ app.post('/todo/new', async (req, res) => {
 })
 
 app.put('/todo/update/:id', async (req, res) => {
+    print(req.params.id);
     await Todo.findByIdAndUpdate(req.params.id, 
         { title: req.body.title, description: req.body.description }, )
     // todo.title = req.body.title;
@@ -49,12 +50,14 @@ app.put('/todo/update/:id', async (req, res) => {
 })
 
 app.delete('/todo/delete/:id', async (req, res) => {
+    print(req.params.id);
     const todo = await Todo.findByIdAndDelete(req.params.id);
 
     res.json(todo);
 })
 
 app.get('/todo/complete/:id', async (req, res) => {
+    print(req.params.id);
     const todo = await Todo.findById(req.params.id);
     todo.complete = !todo.complete;
     todo.save()
