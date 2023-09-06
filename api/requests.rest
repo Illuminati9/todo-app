@@ -1,4 +1,4 @@
-GET http://localhost:5000/todos
+GET https://todoapp-7jzr.onrender.com/todos
 
 ###
 

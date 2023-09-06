@@ -3,8 +3,11 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const dotenv = require('dotenv')
 const app = express()
-
+const bodyParser = require('body-parser')
 dotenv.config();
+
+app.use(bodyParser.json({limit: '30mb',extended:true}));
+app.use(bodyParser.urlencoded({limit:'30mb',extended:true}));
 app.use(express.json())
 app.use(cors())
 
@@ -30,6 +33,8 @@ app.get('/todos', async (req, res) => {
 })
 
 app.post('/todo/new', async (req, res) => {
+    console.log(req.params.id);
+    console.log(req.body.title, req.body.description);
     const todo = new Todo({
         title: req.body.title,
         description: req.body.description,
@@ -40,6 +45,7 @@ app.post('/todo/new', async (req, res) => {
 
 app.put('/todo/update/:id', async (req, res) => {
     console.log(req.params.id);
+    console.log(req.body.title, req.body.description);
     await Todo.findByIdAndUpdate(req.params.id, 
         { title: req.body.title, description: req.body.description }, )
     // todo.title = req.body.title;
@@ -60,8 +66,8 @@ app.get('/todo/complete/:id', async (req, res) => {
     console.log(req.params.id);
     const todo = await Todo.findById(req.params.id);
     todo.complete = !todo.complete;
-    todo.save()
-    res.json(todo)
+    todo.save();
+    res.json(todo);
 })
 
 app.listen(5000, () => {
