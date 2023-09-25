@@ -20,7 +20,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Task>? tasks;
+  List<Task>? tasks=[];
   final key = FormState();
   final TextEditingController _task = TextEditingController();
   final TextEditingController _description = TextEditingController();
@@ -124,7 +124,7 @@ class _MyAppState extends State<MyApp> {
           Visibility(
             visible: isLoaded,
             child: Visibility(
-              visible: tasks != null,
+              visible: tasks!.length>0,
               replacement: Center(
                 child: Text(
                   "Add a task now",
